@@ -42,14 +42,6 @@ class MainActivity : AppCompatActivity() {
         pred_text = findViewById(R.id.text_1)
 
 
-        // Доп. обработка изображений
-//        val imgProc = ImageProcessor.Builder().add(ResizeOp(224, 224, ResizeOp.ResizeMethod.BILINEAR)).build()
-        // Если черно-белое
-//            .add(NormalizeOp(0.0f, 255.0f))
-//            .add(TransformToGrayscaleOp())
-//            .add(ResizeOp(224, 224, ResizeOp.ResizeMethod.BILINEAR)).build()
-
-
         val imgProc = ImageProcessor.Builder()
             .add(ResizeOp(224, 224, ResizeOp.ResizeMethod.BILINEAR))
             .add(NormalizeOp(0.0f, 1.0f))
@@ -65,7 +57,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         predict_btn.setOnClickListener {
-
             if (bitmap == null) {
                 Toast.makeText(
                     this@MainActivity,
